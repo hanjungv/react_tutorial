@@ -1,0 +1,39 @@
+몽고디비에서 영향 https://facebook.github.io/react/docs/update.html
+
+원소 추가
+
+this.setState({
+  list:update(
+    this.state.list,{
+      $push:[newObj,newObj2]    //이를 통하여 리스트에 뉴 오브젝트 2개를 추가함
+    }
+  )
+});
+
+원소 제거
+
+this.setState({
+  list:update(
+    this.state.list,{
+      $splice:[[index,1]] //index부터 몇개 제거할지
+    }
+  )
+});
+
+원소 수정
+
+this.setState({
+  list:update(
+    this.state.list,
+    {
+      [index]:{     //객체일때는 객체의 키가 들어감
+        field:{$set:"value"},
+        field2:{$set:"value2"}
+      }
+    }
+  )
+});
+
+
+spread operator 를 쓸수도
+$npm install --save babel-preset-stage-0
